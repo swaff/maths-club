@@ -2,3 +2,5 @@
 node_modules
 test/bundle.js
 dist
+npm-debug.log
+.sass-cache

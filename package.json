@@ -1,27 +1,30 @@
 {
   "name": "maths-club",
   "version": "1.0.0",
-  "description": "",
+  "description": "Maths Club",
   "main": "index.js",
   "scripts": {
-    "test": "build/build-tests.sh && tape ./test/bundle.js | faucet",
-    "build": "build/build-app.sh",
-    "build-vendor": "build/build-vendor.sh",
-    "watch": "build/watch-app.sh"
+    "build:server": "babel app.js --watch --out-file bundles/server.js",
+    "build:app": "babel app --watch --out-file bundles/client.js",
+    "serve": "nodemon --watch bundles/server.js --watch views bundles/server.js",
+    "styles": "sass --watch assets/styles:public/styles",
+    "db": "mongod --config /usr/local/etc/mongod.conf"
   },
-  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/swaff/maths-club.git"
+  },
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "babel-preset-es2015": "^6.3.13",
-    "babel-preset-react": "^6.3.13",
-    "babelify": "^7.2.0",
-    "faucet": "0.0.1",
-    "tape": "^4.4.0"
+  "bugs": {
+    "url": "https://github.com/swaff/maths-club/issues"
   },
+  "homepage": "https://github.com/swaff/maths-club",
   "dependencies": {
-    "lodash": "^4.0.1",
-    "react": "^0.14.6",
-    "react-dom": "^0.14.6"
+    "express": "^4.13.4",
+    "jade": "^1.11.0"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.5.0"
   }
 }
