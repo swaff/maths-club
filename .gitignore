@@ -4,3 +4,4 @@ test/bundle.js
 dist
 npm-debug.log
 .sass-cache
+server-dist

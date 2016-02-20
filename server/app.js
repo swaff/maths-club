@@ -1,15 +1,12 @@
 const express = require('express');
 const app = express();
 
+const routes = require('./routes');
+
+app.set('views', 'server/views');
 app.set('view engine', 'jade');
 app.use(express.static('public'));
 
-
-app.get('/', (req, res) => {
-    res.render('index', {
-        title: 'Hey',
-        message: 'Hello there!'
-    });
-});
+routes(app);
 
 app.listen(3000, () => console.log('Example app listening on port 3000!'));
