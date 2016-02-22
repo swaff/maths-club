@@ -2,3 +2,16 @@ extends ./layout.jade
 
 block content
     h2 Login
+
+    form(action='/login' method='post', id='login')
+        div
+            label(for='login-email') Email
+            input(id='login-email', name='login-email', placeholder='your.name@somewhere.com')
+
+        div
+            label(for='login-password') Password
+            input(id='login-password', name='login-password', type='password')
+
+        button(type='submit' form='login') Login
+
+    a(href='/sign-up') Sign up for an account
