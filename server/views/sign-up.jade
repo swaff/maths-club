@@ -4,18 +4,14 @@ block content
 
     h2 Sign Up
 
-    form(action='/signup' method='post', id='signup')
+    form(action='/sign-up' method='post', id='signup')
         div
-            label(for='sign-up-email') Email
-            input(id='sign-up-email', name='sign-up-email', placeholder='your.name@somewhere.com')
+            label(for='username') Username
+            input(id='username', name='username')
 
         div
-            label(for='sign-up-password') Password
-            input(id='sign-up-password', name='sign-up-password' type='password')
-
-        div
-            label(for='sign-up-password-confirm') Confirm Password
-            input(id='sign-up-password-confirm', name='sign-up-password-confirm' type='password')
+            label(for='password') Password
+            input(id='password', name='password' type='password')
 
         button(type='submit' form='signup') Sign up
 
