@@ -2,20 +2,23 @@ extends ./layout.jade
 
 block content
 
-    h2 Sign Up
+    div.auth-form
 
-    if message
-        div= message
+        h2 Sign Up
 
-    form(action='/sign-up' method='post', id='signup')
-        div
-            label(for='username') Username
-            input(id='username', name='username')
+        if message
+            div= message
 
-        div
-            label(for='password') Password
-            input(id='password', name='password' type='password')
+        form(action='/sign-up' method='post', id='signup')
 
-        button(type='submit' form='signup') Sign up
+            div.auth-form__item
+                label.auth-form__label(for='username') Username
+                input.auth-form__field(id='username', name='username')
 
-    a(href='/login') Already have an account?
+            div.auth-form__item
+                label.auth-form__label(for='password') Password
+                input.auth-form__field(id='password', name='password' type='password')
+
+            button.button(type='submit' form='signup') Sign up
+
+        a.auth-form__nav-link(href='/login') Already have an account?

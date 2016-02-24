@@ -1,0 +1,35 @@
+.auth-form {
+    font-size: 1.2rem;
+    font-family: helvetica, sans-serif;
+    width: 60%;
+
+    background-color: #F3F3F3;
+
+    padding: 2rem;
+    margin: 0 auto;
+    margin-top: 2rem;
+}
+
+.auth-form .button {
+    margin-left: 120px;
+}
+
+.auth-form__field {
+    display: inline-block;
+    line-height: 2;
+    width: 220px;
+}
+
+.auth-form__label {
+    display: inline-block;
+    width: 120px;
+}
+
+.auth-form__item {
+    margin-bottom: 1rem;
+}
+
+.auth-form__nav-link {
+    margin: 20px 0 0 120px;
+    display: inline-block;
+}

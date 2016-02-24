@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAAA,IAAK;EACD,WAAW,EAAE,OAAO;EACpB,SAAS,EAAE,IAAI;;AAGnB,EAAG;EACC,SAAS,EAAE,IAAI",
-"sources": ["../../assets/styles/_typography.scss"],
-"names": [],
-"file": "main.css"
-}
