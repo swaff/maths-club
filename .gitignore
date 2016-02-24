@@ -5,4 +5,7 @@ dist
 npm-debug.log
 .sass-cache
 server-dist
-assets/styles/main.c*
+assets/styles/main.css
+assets/styles/main.css.map
+public/styles/main.css 
+public/styles/main.css.map
