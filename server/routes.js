@@ -13,9 +13,23 @@ module.exports = function (app, passport) {
         });
     });
 
-    app.get('/login', (req, res) => res.render('login'));
+    app.get('/login', (req, res) => {
+        res.render('login', {
+            message: req.flash('login.message')
+        });
+    });
 
-    app.get('/sign-up', (req, res) => res.render('sign-up'));
+    app.post('/login', passport.authenticate('local-login', {
+        successRedirect: '/',
+        failureRedirect: '/login',
+        failureFlash: true
+    }));
+
+    app.get('/sign-up', (req, res) => {
+        res.render('sign-up', {
+            message: req.flash('sign-up.message')
+        });
+    });
 
     app.post('/sign-up', passport.authenticate('local-signup', {
         successRedirect: '/',
