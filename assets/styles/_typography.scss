@@ -1,8 +1,15 @@
 body {
     font-family: Georgia;
     font-size: 10px;
+    color: $color;
 }
 
 h1 {
     font-size: 2rem;
 }
+
+h2 {
+    padding: 1rem 0;
+    font-size: 1.6rem;
+    text-align: center;
+};
