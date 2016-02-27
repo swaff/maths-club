@@ -27,7 +27,7 @@ describe('sumFactory', function () {
         });
 
         it('describes its operator', function () {
-            expect(addition.operator).to.equal('add');
+            expect(addition.operator).to.equal('addition');
         });
     });
 
@@ -57,7 +57,7 @@ describe('sumFactory', function () {
         });
 
         it('describes its operator', function () {
-            expect(subtraction.operator).to.equal('subtract');
+            expect(subtraction.operator).to.equal('subtraction');
         });
     });
 
@@ -83,7 +83,7 @@ describe('sumFactory', function () {
         });
 
         it('describes its operator', function () {
-            expect(multiplication.operator).to.equal('multiply');
+            expect(multiplication.operator).to.equal('multiplication');
         });
     });
 
@@ -109,7 +109,15 @@ describe('sumFactory', function () {
         });
 
         it('describes its operator', function () {
-            expect(division.operator).to.equal('divide');
+            expect(division.operator).to.equal('division');
+        });
+    });
+
+    describe('getSum', function () {
+        it('gets the expected sum type when requested', function () {
+            ['addition', 'subtraction', 'division', 'multiplication'].forEach(function (operator) {
+                expect(sumFactory.getSum(operator).operator).to.equal(operator);
+            });
         });
     });
 });

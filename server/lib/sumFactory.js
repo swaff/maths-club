@@ -9,7 +9,7 @@ const addition = () => {
     const right = getAdditionOperand();
     const result = left + right;
 
-    return { left, right, result, operator: 'add' };
+    return { left, right, result, operator: 'addition' };
 };
 
 const subtraction = () => {
@@ -17,7 +17,7 @@ const subtraction = () => {
     const [right, left] = _.sortBy(operands);
     const result = left - right;
 
-    return { left, right, result, operator: 'subtract' };
+    return { left, right, result, operator: 'subtraction' };
 };
 
 const multiplication = () => {
@@ -25,7 +25,7 @@ const multiplication = () => {
     const right = getMultiplicationOperand();
     const result = left * right;
 
-    return { left, right, result, operator: 'multiply' };
+    return { left, right, result, operator: 'multiplication' };
 };
 
 const division = () => {
@@ -34,7 +34,7 @@ const division = () => {
         left: multiple.result,
         right: multiple.right,
         result: multiple.left,
-        operator: 'divide'
+        operator: 'division'
     };
 };
 
@@ -42,5 +42,15 @@ module.exports = {
     addition,
     subtraction,
     multiplication,
-    division
+    division,
+    getSum (operator) {
+        if (_.isFunction(this[operator])) {
+            return this[operator]();
+        }
+        throw new Error(`Unknown operator requested [${operator}]`);
+    },
+    getRandomSum () {
+        const operator = _.sample(['addition', 'subtraction', 'multiplication', 'division']);
+        return this.getSum(operator);
+    }
 };
