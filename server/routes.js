@@ -1,3 +1,5 @@
+const sumFactory = require('./lib/sumFactory');
+
 const isLoggedIn = (req, res, next) => {
     if (req.isAuthenticated && req.isAuthenticated()) {
         return next();
@@ -36,4 +38,14 @@ module.exports = function (app, passport) {
         failureRedirect: '/sign-up',
         failureFlash: true
     }));
+
+    app.get('/api/sums', isLoggedIn, (req, res) => {
+        if (req.query.number) {
+            res.json({
+                sums: sumFactory.getRandomSums(req.query.number)
+            });
+        } else {
+            res.status(400).end();
+        }
+    });
 };

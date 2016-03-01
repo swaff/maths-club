@@ -43,14 +43,27 @@ module.exports = {
     subtraction,
     multiplication,
     division,
+
     getSum (operator) {
         if (_.isFunction(this[operator])) {
             return this[operator]();
         }
         throw new Error(`Unknown operator requested [${operator}]`);
     },
+
     getRandomSum () {
         const operator = _.sample(['addition', 'subtraction', 'multiplication', 'division']);
         return this.getSum(operator);
+    },
+
+    getRandomSums (number) {
+        let start = 0;
+        const sums = [];
+
+        while (start < number) {
+            sums.push(this.getRandomSum());
+            start +=1;
+        }
+        return sums;
     }
 };

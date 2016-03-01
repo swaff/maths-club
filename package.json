@@ -7,7 +7,7 @@
     "server:build": "babel server -d server-dist",
     "server:lint": "eslint server",
     "server:test": "mocha server-tests --recursive",
-    "server:watch": "onchange server/**/*.js server-tests/**/*.js -- npm-run-all server:lint server:build server:test",
+    "server:watch": "onchange server/*.js server-tests/**/*.js -- npm-run-all server:lint server:build server:test",
     "serve": "nodemon --watch server-dist server-dist/app.js",
     "styles": "sass --watch assets/styles:public/styles",
     "db": "mongod --config /usr/local/etc/mongod.conf",
