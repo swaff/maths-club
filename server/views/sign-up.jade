@@ -2,12 +2,12 @@ extends ./layout.jade
 
 block content
 
+    if message.length > 0
+        div.notification--error= message
+
     div.auth-form
 
         h2 Sign Up
-
-        if message
-            div= message
 
         form(action='/sign-up' method='post', id='signup')
 

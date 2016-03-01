@@ -15,7 +15,11 @@ const initPassport = (passport) => {
 
     passport.use('local-signup', new LocalStrategy(localStrategyOptions, (req, username, password, done) => {
 
-        User.findOne({ username }, (err, user) => {
+        const lowercasedUsername = username.toLowerCase();
+
+        User.findOne({ username: lowercasedUsername }, (err, user) => {
+
+            console.log('in user');
 
             if (err) {
                 return done(err);
@@ -25,10 +29,11 @@ const initPassport = (passport) => {
                 return done(null, false, req.flash('sign-up.message', 'This username has already been taken'));
             }
 
+
             // Everything is looking good at this point, no errors, and no user
             // with the requested email address
             const newUser = new User();
-            newUser.username = username;
+            newUser.username = lowercasedUsername;
             newUser.password = newUser.getPasswordHash(password);
 
             newUser.save((err) => {
@@ -42,8 +47,10 @@ const initPassport = (passport) => {
 
     passport.use('local-login', new LocalStrategy(localStrategyOptions, (req, username, password, done) => {
 
+        const lowercasedUsername = username.toLowerCase();
+
         // try and find a user with the given username
-        User.findOne({ username }, (err, user) => {
+        User.findOne({ username: lowercasedUsername }, (err, user) => {
 
             if (err) { return done(err); }
 
