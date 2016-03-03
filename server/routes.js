@@ -9,10 +9,11 @@ const isLoggedIn = (req, res, next) => {
 
 module.exports = function (app, passport) {
     app.get('/', isLoggedIn, (req, res) => {
-        res.render('index', {
-            title: 'Hey',
-            message: 'Hello there!'
-        });
+        res.render('index');
+    });
+
+    app.get('/club/:number', isLoggedIn, (req, res) => {
+        res.render('index');
     });
 
     app.get('/login', (req, res) => {

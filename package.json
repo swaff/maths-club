@@ -11,7 +11,10 @@
     "serve": "nodemon --watch server-dist server-dist/app.js",
     "styles": "sass --watch assets/styles:public/styles",
     "db": "mongod --config /usr/local/etc/mongod.conf",
-    "test": "npm run server:test"
+    "test": "npm run server:test",
+    "app:build": "browserify assets/javascript/main.js -t [ babelify --presets [ es2015 ] ] > public/javascript/bundle.js",
+    "app:copy": "cp -r assets/javascript/partials public/javascript",
+    "app:watch": "onchange assets/javascript/* -- npm-run-all app:build app:copy"
   },
   "repository": {
     "type": "git",
@@ -24,6 +27,8 @@
   },
   "homepage": "https://github.com/swaff/maths-club",
   "dependencies": {
+    "angular": "^1.5.0",
+    "angular-route": "^1.5.0",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.15.0",
     "connect-flash": "^0.1.1",
@@ -38,6 +43,7 @@
     "passport-local": "^1.0.0"
   },
   "devDependencies": {
+    "babelify": "^7.2.0",
     "babel-preset-es2015": "^6.5.0",
     "chai": "^3.5.0",
     "eslint": "^2.2.0",
