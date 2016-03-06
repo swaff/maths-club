@@ -1,20 +1,20 @@
 <div ng-controller="ClubController as club">
 
     <div ng-hide="club.hasStarted">
-        
+
         <h2>Welcome to {{club.number}} Club</h2>
-        
+
         <h3>Are you ready to start?</h3>
         <p>You have ten minutes to answer {{ club.number }} questions</p>
 
         <button ng-click="club.start()">Start</button>
         <a href="/">Maybe later<a>
     </div>
-    
+
     <ul class="sums" ng-show="club.hasStarted">
         <li class="sum" ng-repeat="sum in club.sums">
             <span class=sum-operand>{{sum.left}}</span>
-            <span class=sum-operator>?</span>
+            <span class=sum-operator>{{sum.sign}}</span>
             <span class=sum-operand>{{sum.right}}</span>
             <span class=sum-equals>&#x3d;</span>
             <input class=sum-answer type="text" />
