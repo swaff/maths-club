@@ -3,7 +3,24 @@
     border: 0;
     line-height: 2;
     width: 6rem;
-    background-color: #FFB341;
+    background-color: $color-action;
     border: 3px solid #FFF;
     font-size: 1rem;
+    border-radius: 6px;
+    transition: background-color .2s linear;
+}
+
+.button:hover {
+    background-color: #FFA231;
+}
+
+.button:active {
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+.button__large {
+    display: block;
+    font-size: 3rem;
+    margin: 0 auto;
+    width: 50%;
 }

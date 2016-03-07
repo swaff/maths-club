@@ -1,15 +1,25 @@
 body {
     font-family: Futura;
     font-size: 10px;
-    color: $color;
+    color: $color-primary;
 }
 
 h1 {
-    font-size: 2rem;
+    font-size: 2.4rem;
 }
 
 h2 {
     margin: 0;
     padding-bottom: 2rem;
-    font-size: 1.6rem;
+    font-size: 2rem;
 };
+
+
+h3 {
+    font-size: 1.6rem;
+}
+
+p {
+    font-size: 1.6rem;
+}
+

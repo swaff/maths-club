@@ -1,13 +1,11 @@
 <div ng-controller="ClubController as club">
 
-    <div ng-hide="club.hasStarted">
+    <div class="callout" ng-hide="club.hasStarted">
 
         <h2>Welcome to {{club.number}} Club</h2>
+        <p>You have 10 minutes to answer {{ club.number }} questions</p>
 
-        <h3>Are you ready to start?</h3>
-        <p>You have ten minutes to answer {{ club.number }} questions</p>
-
-        <button ng-click="club.start()">Start</button>
+        <button class="button" ng-click="club.start()">Start</button>
         <a href="/">Maybe later<a>
     </div>
 
@@ -22,11 +20,13 @@
             </li>
         </ul>
 
-        <button ng-click="club.finish()">Finish</button>
+        <button class="button button__large" ng-click="club.finish()">Finish</button>
     </div>
 
-    <div ng-show="club.hasFinished">
+    <div ng-show="club.hasFinished" class="callout">
         <h3>Finished</h3>
-        You got {{ club.result.score() }} out of {{ club.number }}
+        <p>
+            You got {{ club.result.score() }} out of {{ club.number }}
+        </p>
     </div>
 </div>
