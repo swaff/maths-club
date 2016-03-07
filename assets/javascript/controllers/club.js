@@ -1,26 +1,25 @@
-const operatorMap = {
-    addition: '+',
-    subtraction: '-',
-    multiplication: '×',
-    division: '÷'
-};
 
-const decorateSum = (sum) => {
-    sum.sign = operatorMap[sum.operator];
-    return sum;
-};
-
-module.exports = ['$routeParams', '$http', function ($routeParams, $http) {
+module.exports = ['$routeParams', '$http', 'SumHelper', function ($routeParams, $http, SumHelper) {
 
     this.number = $routeParams.number;
     this.sums = [];
+    this.result = {};
+    this.hasStarted = false;
+    this.hasFinished = false;
 
     $http.get(`/api/sums?number=${this.number}`)
         .success((data) => {
-            this.sums = data.sums.map(decorateSum);
+            this.sums = data.sums.map(SumHelper.decorateSum);
         });
 
-    this.hasStarted = false;
     this.start = () => this.hasStarted = true;
 
+    this.finish = () => {
+        this.hasFinished = true;
+        this.result = SumHelper.getResult(this.sums);
+    };
+
+    this.shouldDisplaySums = () => {
+        return this.hasStarted && !this.hasFinished;
+    };
 }];

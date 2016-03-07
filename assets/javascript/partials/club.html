@@ -11,13 +11,22 @@
         <a href="/">Maybe later<a>
     </div>
 
-    <ul class="sums" ng-show="club.hasStarted">
-        <li class="sum" ng-repeat="sum in club.sums">
-            <span class=sum-operand>{{sum.left}}</span>
-            <span class=sum-operator>{{sum.sign}}</span>
-            <span class=sum-operand>{{sum.right}}</span>
-            <span class=sum-equals>&#x3d;</span>
-            <input class=sum-answer type="text" />
-        </li>
-    </ul>
+    <div ng-show="club.shouldDisplaySums()">
+        <ul class="sums">
+            <li class="sum" ng-repeat="sum in club.sums">
+                <span class=sum-operand>{{sum.left}}</span>
+                <span class=sum-operator>{{sum.sign}}</span>
+                <span class=sum-operand>{{sum.right}}</span>
+                <span class=sum-equals>=</span>
+                <input class=sum-answer type="text" ng-model="sum.answer" />
+            </li>
+        </ul>
+
+        <button ng-click="club.finish()">Finish</button>
+    </div>
+
+    <div ng-show="club.hasFinished">
+        <h3>Finished</h3>
+        You got {{ club.result.score() }} out of {{ club.number }}
+    </div>
 </div>

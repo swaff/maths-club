@@ -8,7 +8,6 @@ const localStrategyOptions = {
 const isUserAuthenticated = (user, password) => user && user.isValidPassword(password);
 
 const initPassport = (passport) => {
-    console.log('init passport');
     passport.serializeUser((user, done) => done(null, user.id));
 
     passport.deserializeUser((id, done) => User.findById(id, done));
@@ -18,8 +17,6 @@ const initPassport = (passport) => {
         const lowercasedUsername = username.toLowerCase();
 
         User.findOne({ username: lowercasedUsername }, (err, user) => {
-
-            console.log('in user');
 
             if (err) {
                 return done(err);
