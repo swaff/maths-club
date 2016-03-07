@@ -5,37 +5,38 @@
 
 .sum {
     display: inline-block;
-    margin: 6px;
+    margin: .6rem;
     background-color: #FBFBFB;
-    padding: 10px;
+    padding: 1rem;
     border: 1px solid #ddd;
+    font-size: 1.6rem;
 }
 
 .sum-operand {
     display: inline-block;
-    width: 30px;
+    width: 3rem;
     text-align: right;
 }
 
 .sum-operator {
     display: inline-block;
     text-align: right;
-    width: 20px;
-    padding-left: 5px;
-    padding-right: 5px;
+    width: 2rem;
+    padding-left: .5rem;
+    padding-right: .5rem;
 }
 
 .sum-equals {
     display: inline-block;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 2rem;
+    padding-right: 2rem;
 }
 
 .sum-answer {
     font-family: futura;
-    line-height: 20px;
-    font-size: 16px;
-    padding: 10px;
-    width: 54px;
+    line-height: 2rem;
+    font-size: 1.6rem;
+    padding: 1rem;
+    width: 5.4rem;
 }
 
