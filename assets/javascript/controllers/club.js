@@ -1,5 +1,5 @@
 
-module.exports = ['$routeParams', '$http', 'SumHelper', function ($routeParams, $http, SumHelper) {
+module.exports = ['$routeParams', '$http', '$interval', 'SumHelper', 'QuizTimer', function ($routeParams, $http, $interval, SumHelper, QuizTimer) {
 
     this.number = $routeParams.number;
     this.sums = [];
@@ -12,9 +12,13 @@ module.exports = ['$routeParams', '$http', 'SumHelper', function ($routeParams, 
             this.sums = data.sums.map(SumHelper.decorateSum);
         });
 
-    this.start = () => this.hasStarted = true;
+    this.start = () => {
+        this.hasStarted = true;
+        QuizTimer.start(this.finish);
+    };
 
     this.finish = () => {
+        QuizTimer.cancel();
         this.hasFinished = true;
         this.result = SumHelper.getResult(this.sums);
     };
