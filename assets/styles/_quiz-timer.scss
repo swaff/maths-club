@@ -1,0 +1,27 @@
+.quiz-timer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: $color-accent;
+    border-top: 1px solid $color-primary;
+    border-bottom: 1px solid $color-primary;
+    height: 30px
+}
+
+.quiz-timer__time {
+    position: absolute;
+    line-height: 3;
+    left: 1rem;
+}
+
+.quiz-timer__time-remaining {
+    position: absolute;
+    line-height: 3;
+    right: 1rem;
+}
+
+.quiz-timer__progress {
+    background-color: $color-action;
+    height: 30px;
+}

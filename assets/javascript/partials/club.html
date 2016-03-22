@@ -11,7 +11,7 @@
         <a href="/">Maybe later<a>
     </div>
 
-    <div ng-show="club.shouldDisplaySums()">
+    <div class="sums-container" ng-show="club.shouldDisplaySums()">
         <ul class="sums">
             <li class="sum" ng-repeat="sum in club.sums">
                 <span class=sum-operand>{{sum.left}}</span>
@@ -22,6 +22,7 @@
             </li>
         </ul>
 
+        <quiz-time></quiz-time>
         <button class="button button__large" ng-click="club.finish()">Finish</button>
     </div>
 
