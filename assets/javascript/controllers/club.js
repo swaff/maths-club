@@ -1,5 +1,5 @@
 
-module.exports = ['$routeParams', '$http', '$interval', 'SumHelper', 'QuizTimer', function ($routeParams, $http, $interval, SumHelper, QuizTimer) {
+module.exports = ['$routeParams', '$http', 'SumHelper', 'QuizTimer', function ($routeParams, $http, SumHelper, QuizTimer) {
 
     this.number = $routeParams.number;
     this.sums = [];
