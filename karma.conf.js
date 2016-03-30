@@ -15,7 +15,14 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'assets/javascript/**/*.spec.js'
+        // load in the application code which itself pulls in angular
+        'assets/javascript/main.js',
+
+        // add the mocking framework supplied by angular mocks
+        'node_modules/angular-mocks/angular-mocks.js',
+
+        // add any spec files
+        'assets/javascript/**/*.spec.js'
     ],
 
 
@@ -27,6 +34,7 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+      'assets/javascript/main.js': [ 'browserify' ],
       'assets/javascript/**/*.spec.js': [ 'browserify' ]
     },
 
