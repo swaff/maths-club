@@ -17,8 +17,7 @@ describe('controllers:Club', function () {
     let controller;
     let $httpBackend;
 
-    beforeEach(angular.mock.module('mathsApp', function ($provide) {
-    }));
+    beforeEach(angular.mock.module('mathsApp'));
 
     beforeEach(inject(function (_$controller_, _$httpBackend_) {
         const $controller = _$controller_;

@@ -22,7 +22,10 @@ module.exports = function(config) {
         'node_modules/angular-mocks/angular-mocks.js',
 
         // add any spec files
-        'assets/javascript/**/*.spec.js'
+        'assets/javascript/**/*.spec.js',
+
+        // add the partial templates
+        'assets/javascript/partials/*.html'
     ],
 
 
@@ -35,7 +38,12 @@ module.exports = function(config) {
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
       'assets/javascript/main.js': [ 'browserify' ],
-      'assets/javascript/**/*.spec.js': [ 'browserify' ]
+      'assets/javascript/**/*.spec.js': [ 'browserify' ],
+      'assets/javascript/partials/*.html': 'ng-html2js'
+    },
+
+    ngHtml2JsPreprocessor: {
+        stripPrefix: 'assets/',
     },
 
     browserify: {
